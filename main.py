@@ -1,10 +1,9 @@
-from Clases import Persona
-from Clases import Lista
+from Clases import Persona, Lista
 
-idIt = 0
-iterador = 0
+
 salir = False
 lista = Lista()
+persona = Persona()
 
 while True:
   
@@ -17,6 +16,7 @@ while True:
   print("          ")
   mainMenu = int(input())
   print("          ")
+
   if mainMenu == 1:
     print("Ingrese el ID de la persona:")
     idNew = input()
@@ -27,12 +27,12 @@ while True:
     print("Ingrese la fecha de pedido (DD/MM/AA):")
     fechaNew = input()
     fechaStr = str(fechaNew)
-    p = Persona(idNew, nombreNew)
     print("          ")
-    print("Atencion: La persona " + p.nombre + " pidió " + materialNew)
+    print("Atencion: La persona " + nombreNew + " pidió " + materialNew)
     print("          ")
-    p.pide(idNew, nombreNew, materialNew, fechaNew)
+    persona.pide(idNew, nombreNew, materialNew, fechaNew)
     salir = False
+
   if mainMenu == 2:
     print("Ingrese el ID de la persona:")
     idDev = input()
@@ -45,16 +45,20 @@ while True:
     print("          ")
     print("Atencion: La persona " + nombre + " devolvio " + material)
     print("          ")
-    p.devolver(idDev, nombre, material, fecha)
+    persona.devuelve(idDev, nombre, material, fecha)
+    
   if mainMenu == 3:
     lista.pedidos(True)
     salir = False
+
   if mainMenu == 4:
     lista.devoluciones(True)
     salir = False
+
   if mainMenu == 5:
     print("Has salido del sistema")
     salir = True
+    
   if(salir == True):
         break
 

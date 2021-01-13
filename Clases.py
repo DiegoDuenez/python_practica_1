@@ -2,12 +2,7 @@ registroPedir = {}
 registroDev = {}
 
 class Persona:
-
-  def __init__(self, id, nombre):
-    self.id = id
-    self.nombre = nombre
-    self.materiales = []
-
+    
   def pide(self, idPersona, nombre,material, fecha):
     registroPedir.update({'Id_'+ repr(idPersona): repr(idPersona)})
     registroPedir.update({'Persona '+ repr(idPersona):nombre})
@@ -15,7 +10,7 @@ class Persona:
     })
     registroPedir.update({'Fecha pedido '+ repr(idPersona):fecha})
 
-  def devolver(self, idPersona, nombre, material, fecha):
+  def devuelve(self, idPersona, nombre, material, fecha):
     registroPedir.pop('Id_'+ repr(idPersona))
     registroPedir.pop('Persona '+ repr(idPersona))
     registroPedir.pop('Material '+ repr(idPersona))
@@ -38,6 +33,7 @@ class Lista:
         print(value + ": " + valor)
       print("- - - - - - - - - - - - - - - - - - - - - -")
       print("          ")  
+
   def devoluciones(self, activar):
     self.activar = activar
     if activar == True:
@@ -45,7 +41,7 @@ class Lista:
       for value in registroDev:
         valor = registroDev[value]
         print(value + ": " + valor)
-      print("- - - - - - - - - - - - - - - - - - - - - -")
+      print("- - - - - - - - - - - - - - - - - - - - - - -")
       print("          ")
     
 
